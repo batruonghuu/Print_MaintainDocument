@@ -6,6 +6,7 @@ file_template_path = tkinter.filedialog.askopenfilename(title='MỞ FILE TEMPLAT
 file_vlookup = tkinter.filedialog.askopenfilename(title='MỞ FILE VLOOKUP')
 
 df_vlookup = pd.read_excel(file_vlookup)
+df_vlookup['Mã trang thiết bị new'] = df_vlookup['Mã trang thiết bị new'].str.replace('\n', '; ')
 df_vlookup['Gộp'] = df_vlookup['Tên trang thiết bị'] + ' (' + df_vlookup['Mã trang thiết bị new'] + ')'
 
 template_print_wb =openpyxl.load_workbook(file_template_path)
